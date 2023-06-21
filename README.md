@@ -10,6 +10,10 @@ Supported Image Formats: The application supports various image formats, includi
 Easy-to-Use Interface: The web interface is designed to be intuitive and user-friendly, making it simple for users to navigate and extract text from images.
 Acknowledgements
 The project uses the Tesseract OCR library for text extraction.
+![image](https://github.com/tonyduynguyen/Text_Extractor_OCR_Website/assets/130585999/505125fb-fc53-4669-9813-ca5d9a55e070)
+![image](https://github.com/tonyduynguyen/Text_Extractor_OCR_Website/assets/130585999/96c78943-9b39-472a-9022-b559a76af7e9)
+![image](https://github.com/tonyduynguyen/Text_Extractor_OCR_Website/assets/130585999/67565aa8-aef2-4d22-b338-fa5e8744e34f)
+
 Thanks to the contributors and the open-source community for their valuable contributions and resources.
 Contact
 For any questions or inquiries, please contact Tony Nguyen.
