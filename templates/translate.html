@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Extract or scan text from images in multiple languages- English Hindi Nepali etc. Quickly Get Text from Image"
+    />
+    <title> Translate Text </title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+      href="http://fonts.cdnfonts.com/css/euclid-circular-a?styles=100037,100034,100036,100039,100031"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+<!--    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">-->
+    <script src="/static/error.js"></script>
+    <link
+      rel="shortcut icon"
+      href="/static/assets/icons/TEXT.svg"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body
+    class="bg-slate-50"
+    style="font-family: 'Euclid Circular A', sans-serif"
+  >
+    <header class="text-gray-600 body-font">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <span class="ml-3 text-xl">OCR <i class="fi fi-rr-text"></i></span>
+        </a>
+        <nav
+          class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <a href="{% url 'home' %}" class="mr-5 cursor-pointer hover:text-gray-900"
+            ><i class="fi fi-rr-home"></i> Home</a
+          >
+          <a href="{% url 'editpic' %}" class="mr-5 cursor-pointer hover:text-gray-900"
+            ><i class="fi fi-rr-home"></i> Edit Picture</a
+          >
+          <a href="/" class="mr-5 cursor-pointer hover:text-gray-900"
+            ><i class="fi fi-rr-home"></i> Sharpen filter</a
+          >
+          <a href="{% url 'translate' %}" class="mr-5 cursor-pointer hover:text-gray-900"
+            ><i class="fi fi-rr-home"></i> Translate</a
+          >
+          <a href="{% url 'contactus' %}" class="mr-5 cursor-pointer hover:text-gray-900"
+            ><i class="fi fi-rr-home"></i> Contact us</a
+          >
+        </nav>
+        <a
+          href="{% url 'logout' %}"
+          class="mr-5 cursor-pointer hover:text-gray-900 custom-btn shadow-md bg-white text-center"
+          ><i class="fi fi-rr-user"></i> Log out</a
+        >
+      </div>
+    </header>
+    <section>
+        <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-12">
+          <h1 class="sm:text-7xl text-2xl font-medium mb-4 text-gray-900">
+            Text Translation
+          </h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-xl">
+            Translate text
+          </p>
+        </div>
+    </section>
+    <div class="container flex justify-center">
+         <form method="POST" action="{% url 'translate' %}">
+            {% csrf_token %}
+            <div class="form-row mt-4">
+               <div class="col">
+                  <textarea name="txt" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" placeholder="Nhập văn bản" rows="5"></textarea>
+               </div>
+               <br>
+               <div class="col">
+                  <select class="form-control custom-btn shadow-md bg-white text-center" name="lang">
+                     <option selected value="vi,vi">Tiếng Việt</option>
+                     <option value="ru,ru">Tiếng Nga</option>
+                     <option value="en,en-us">Tiếng Anh</option>
+                     <option value="es,es-es">Tiếng Tây Ban Nha</option>
+                     <option value="de,de">Tiếng Đức</option>
+					 <option value="fr,fr">Tiếng Pháp</option>
+					 <option value="pt,pt">Tiếng Bồ Đào Nha</option>
+					 <option value="zh-cn,zh-cn">Tiếng Trung</option>
+                  </select>
+               </div>
+            </div>
+           <div class="flex justify-center ">
+  <div class="flex items-center justify-between ">
+    <input type="submit" class="btn btn-primary mt-2 custom-btn shadow-md bg-white text-center" value="Dịch" name="translate">
+    <input type="submit" class="btn btn-primary mt-2 custom-btn shadow-md bg-white text-center" value="Tiếng nói" name="sound">
+  </div>
+</div>
+
+         </form>
+		 <div><p class="mt-4">{{result}}</p></div>
+      </div>
+  </body>
+</html>
